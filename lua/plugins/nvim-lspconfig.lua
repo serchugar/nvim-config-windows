@@ -2,6 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		"folke/neodev.nvim",
 	},
 	config = function()
@@ -35,6 +36,9 @@ return {
 
 		require("neodev").setup()
 
+		require('mason-lspconfig').setup({
+			ensure_installed = { "clangd", "lua_ls", "jdtls" },
+		})
 		-- LUA
 		require("lspconfig").lua_ls.setup({
 			on_attach = on_attach,
