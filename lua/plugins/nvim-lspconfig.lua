@@ -55,6 +55,11 @@ return {
 		-- I've tried so many times and different ways that I'm sick of it.
 		-- So for now, if you want to use any extra header file you have. Just copy-paste it into
 		-- "C:\Users\<Username>\AppData\Local\nvim-data\mason\packages\clangd\clangd_19.1.0\lib\clang\19\include"
+		-- Extra: Clangd didn't even come with standard headers like <iostream>. For some reason, after installing C++ 
+		-- development tools with the Visual Studio Installer, and then having Mason reinstall clangd, it includes them, although
+		-- those std header files are not in the clangd directory. Probably were automatically added to the include path of
+		-- clangd when redownloading it. With those std headers, one can then add manually stdc++.h ,since it contains
+		-- std headers, to the path above mentioned.
 		require("lspconfig").clangd.setup({
 			on_attach = on_attach,
 		})
