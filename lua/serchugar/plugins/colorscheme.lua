@@ -69,6 +69,9 @@ return {
                 LineNr = { fg = "$electricBlue" },
                 LineNrAbove = { fg = "$dimElectricBlue" },
                 LineNrBelow = { fg = "$dimElectricBlue" },
+                NormalFloat = { bg = "none" }, -- was $darker_black
+                FloatTitle = { fg = "$white", bg = "none" }, --{ fg = "$white", bg = "$grey" },
+                FloatBorder = { fg = "$blue", bg = "none" },  --{ fg = "$blue" },
                 ["@boolean"] = { fg = "$base09" },
 
                 -- From nvchad base46
@@ -83,9 +86,6 @@ return {
                 MatchParen = { link = "MatchWord" },
                 Comment = { fg = "$light_grey" },
                 CursorLineNr = { fg = "$white" },
-                FloatBorder = { fg = "$blue" },
-                FloatTitle = { fg = "$white", bg = "$grey" },
-                NormalFloat = { bg = "$darker_black" },
                 NvimInternalError = { fg = "$red" },
                 WinSeparator = { fg = "$line" },
                 Normal = { fg = "$base05", bg = "none" }, -- bg was: base00

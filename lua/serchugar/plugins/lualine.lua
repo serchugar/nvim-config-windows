@@ -5,6 +5,7 @@ return {
     opts = {
         options = {
             globalstatus = true,
+            always_show_tabline = true,
         },
         sections = {
             lualine_c = { { "filename", file_status = true, path = 1, } },
@@ -12,6 +13,9 @@ return {
         },
         inactive_winbar = {
             lualine_c = { { "filename", color = {bg = "none" , fg = "#ffffff" } } },
+        },
+        winbar = {
+            lualine_c = { function() return " " end }, -- Display empty tabline on active buffer
         },
         tabline = {
             lualine_a = {},
