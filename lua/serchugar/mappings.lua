@@ -1,5 +1,5 @@
 -- Open file explorer
-vim.keymap.set("n", "<leader>e", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>")
 
 -- Leader Tab to delete the current buffer. Tab and Shift-Tab go to next and previous buffer. :bl and :bf to last and first buffer
 vim.keymap.set("n", "<leader><tab>", ":bd<CR>")
