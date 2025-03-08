@@ -3,6 +3,8 @@ vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>")
 
 -- Leader Tab to delete the current buffer. Tab and Shift-Tab go to next and previous buffer. :bl and :bf to last and first buffer
 vim.keymap.set("n", "<leader><tab>", ":bd<CR>")
+vim.keymap.set("n", "<tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
 
 -- Move selected blocks with J and K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
