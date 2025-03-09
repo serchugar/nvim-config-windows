@@ -9,7 +9,7 @@ return {
         local on_attach = function(client, bufnr)
             local opts = { noremap = true, silent = true, buffer = bufnr }
 
-            vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, opts)
+            vim.keymap.set("n", "<leader>f", function() require("serchugar.utils.functions").custom_lsp_format(client) end, opts)
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
             vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
