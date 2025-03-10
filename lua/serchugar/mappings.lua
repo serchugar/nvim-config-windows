@@ -1,3 +1,8 @@
+-- Open and close floating window terminal 
+local term = require("serchugar.utils.terminal")
+vim.keymap.set("n", "<A-i>", function() term.OpenFloat() end)
+vim.keymap.set("t", "<A-i>", function() term.Hide() end)
+
 -- Open file explorer
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>")
 
