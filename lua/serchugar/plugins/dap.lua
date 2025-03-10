@@ -1,5 +1,3 @@
--- TODO: Whenever I run dap.continue(), codelldb shuts downs inmediately, raising no errors whatsoever.
--- For now, I have no idea what it could be. This exact same setup works in linux (debian).
 return {
     {
         "mfussenegger/nvim-dap",
@@ -52,6 +50,7 @@ return {
                     },
                 },
             })
+            vim.keymap.set("n", "<leader>dd", function() dapui.toggle() end)
             dap.listeners.after.event_initialized.dapui_config = function()
                 dapui.open()
             end
@@ -83,19 +82,18 @@ return {
             require("mason").setup()
             require("mason-nvim-dap").setup({
                 ensure_installed = {
-                    "codelldb",
-                    "java-debug-adapter",
+                    "cpptools", -- codelldb does not stop on breakpoints for some reason
                 },
                 automatic_installation = true,
                 handlers = {
                     function(config)
                         require("mason-nvim-dap").default_setup(config)
                     end,
-                    codelldb = function(config)
+                    cppdbg = function(config)
                         config.configurations = {
                             {
                                 name = "Executable .exe",
-                                type = "codelldb",
+                                type = "cppdbg",
                                 request = "launch",
                                 program = function()
                                     local path = vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "\\a.exe",
@@ -111,7 +109,19 @@ return {
                                 cwd = "${workspaceFolder}",
                                 stopOnEntry = false,
                                 args = function()
-                                    return dap_args
+                                    -- 3 Ways to update the value of dap_args:
+
+                                    -- Way 1 (weird one)
+                                    --for _,arg in ipairs(dap_args) do
+                                    --end
+                                    --return dap_args
+
+                                    -- Way 2
+                                    return vim.deepcopy(dap_args)
+
+                                    -- Way 3
+                                    --local updated_args = dap_args
+                                    --return updated_args
                                 end,
                                 outputMode = "remote",
                             },

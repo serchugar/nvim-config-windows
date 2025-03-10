@@ -1,6 +1,6 @@
 return {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' 
+    dependencies = { 'nvim-tree/nvim-web-devicons'
     },
     opts = {
         options = {
@@ -11,16 +11,10 @@ return {
             lualine_c = { { "filename", file_status = true, path = 1, } },
             lualine_x = { "fileformat", "encoding", "filetype" },
         },
-        inactive_winbar = {
-            lualine_c = { { "filename", color = {bg = "none" , fg = "#ffffff" } } },
-        },
-        winbar = {
-            lualine_c = { function() return " " end }, -- Display empty tabline on active buffer
-        },
         tabline = {
             lualine_a = {},
             lualine_b = {},
-            lualine_c = { function() return vim.loop.cwd():match("([^\\]+)$") end },
+            lualine_c = { function() return vim.fn.getcwd():match("([^\\]+)$") end },
             lualine_x = { { "datetime", style = "%H:%M:%S" }, { "datetime", style = "%d-%m-%Y" } },
             lualine_y = {},
             lualine_z = {}
