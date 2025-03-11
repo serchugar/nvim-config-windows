@@ -6,10 +6,19 @@ return {
         options = {
             globalstatus = true,
             always_show_tabline = true,
+            disabled_filetypes = {
+                winbar = { "dap-repl", "dapui_console" }
+            },
         },
         sections = {
             lualine_c = { { "filename", file_status = true, path = 1, } },
             lualine_x = { "fileformat", "encoding", "filetype" },
+        },
+        inactive_winbar = {
+            lualine_c = { { "filename", color = {bg = "none" , fg = "#ffffff" } } },
+        },
+        winbar = {
+            lualine_c = { {"filename" , color = {bg = "none", fg = "#4cdce1"} } },
         },
         tabline = {
             lualine_a = {},
