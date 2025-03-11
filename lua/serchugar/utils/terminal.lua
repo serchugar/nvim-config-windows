@@ -10,7 +10,7 @@ local function get_float_opts()
         relative = 'editor',
         width = width,
         height = height,
-        row = math.floor((vim.o.lines - height) / 2) - 1, -- Translate window 1 row up
+        row = math.floor((vim.o.lines - height) / 2) - 2, -- Translate window 2 row up
         col = math.floor((vim.o.columns - width) / 2),
         style = 'minimal',
         border = 'rounded'
