@@ -43,6 +43,22 @@ return {
             mode = "n",
             desc = 'Telescope find ~/.config/ files'
         },
+        {
+            '<leader>fg',
+            function()
+                require("telescope.builtin").live_grep()
+            end,
+            mode = "n",
+            desc = 'Telescope live grep'
+        },
+        {
+            '<leader>fc',
+            function()
+                require("telescope.builtin").git_status()
+            end,
+            mode = "n",
+            desc = 'Telescope git changes'
+        },
     },
 }
 

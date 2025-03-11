@@ -3,6 +3,9 @@ local term = require("serchugar.utils.terminal")
 vim.keymap.set("n", "<A-i>", function() term.OpenFloat() end)
 vim.keymap.set("t", "<A-i>", function() term.Hide() end)
 
+-- Turn off hlsearch
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 -- Open file explorer
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>")
 
