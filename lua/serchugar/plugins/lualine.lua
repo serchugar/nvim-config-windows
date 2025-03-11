@@ -7,7 +7,11 @@ return {
             globalstatus = true,
             always_show_tabline = true,
             disabled_filetypes = {
-                winbar = { "dap-repl", "dapui_console" }
+                winbar = {
+                    "dap-repl",
+                    "dapui_console",
+                    "oil",
+                },
             },
         },
         sections = {
