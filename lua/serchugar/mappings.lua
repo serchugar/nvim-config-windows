@@ -24,7 +24,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Allows to keep the cursor in the middle when doing search with "/"
 vim.keymap.set("n", "n", "nzzzv") -- go to next
-vim.keymap.set("n", "N", "Nzzzv") -- go to prev
+vim.keymap.set("n", "<C-n>", "Nzzzv") -- go to prev
 
 -- This one is to indent everything automatically
 vim.keymap.set("n", "=ap", "ma=ap'a")
