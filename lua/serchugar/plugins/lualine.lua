@@ -1,3 +1,4 @@
+local utils = require("serchugar.utils.functions")
 return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons'
@@ -27,7 +28,13 @@ return {
         tabline = {
             lualine_a = {},
             lualine_b = {},
-            lualine_c = { function() return vim.fn.getcwd():match("([^\\]+)$") end },
+            lualine_c = { function()
+                if utils.isWindowsOs() then
+                    return vim.fn.getcwd():match("([^\\]+)$")
+                else
+                    return vim.fn.getcwd():match("([^/]+)$")
+                end
+            end },
             lualine_x = { { "datetime", style = "%H:%M:%S" }, { "datetime", style = "%d-%m-%Y" } },
             lualine_y = {},
             lualine_z = {}

@@ -1,7 +1,6 @@
 local M = {}
 
 function M.custom_lsp_format(client)
-
     -- Custom format for clangd
     if client.name == "clangd" then
         local filepath = vim.fn.getcwd() .. "/.clang-format"
@@ -23,6 +22,10 @@ function M.custom_lsp_format(client)
     else
         vim.lsp.buf.format()
     end
+end
+
+function M.isWindowsOs()
+    return vim.uv.os_uname().sysname:match "Windows"
 end
 
 return M

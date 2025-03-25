@@ -1,3 +1,4 @@
+local utils = require("serchugar.utils.functions")
 return {
     {
         "mfussenegger/nvim-dap",
@@ -92,12 +93,18 @@ return {
                     cppdbg = function(config)
                         config.configurations = {
                             {
-                                name = "Executable .exe",
+                                name = "Executable",
                                 type = "cppdbg",
                                 request = "launch",
                                 program = function()
-                                    local path = vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "\\a.exe",
+                                    local path = nil
+                                    if utils.isWindowsOs() then
+                                        path = vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "\\a.exe",
                                         "file")
+                                    else
+                                        path = vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/a.out",
+                                        "file")
+                                    end
                                     local parsed_path = vim.split(path, " ")
                                     local executable = parsed_path[1]
                                     dap_args = {}

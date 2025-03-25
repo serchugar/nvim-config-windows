@@ -1,6 +1,8 @@
 -- Own custom floating terminal module
 -- Functions used in mappings.lua
 
+local utils = require("serchugar.utils.functions")
+
 local M = {}
 
 local bufnr = nil
@@ -27,7 +29,11 @@ function M.OpenFloat()
         vim.api.nvim_open_win(bufnr, true, floatWindowOpts)
 
         vim.api.nvim_command('term')
-        vim.fn.chansend(vim.api.nvim_get_option_value("channel", { buf = bufnr }), "cls\r")
+        if utils.isWindowsOs() then
+            vim.fn.chansend(vim.api.nvim_get_option_value("channel", { buf = bufnr }), "cls\r")
+        else
+            vim.fn.chansend(vim.api.nvim_get_option_value("channel", { buf = bufnr }), "clear\r")
+        end
 
     elseif vim.api.nvim_get_current_buf() ~= bufnr then
         vim.api.nvim_open_win(bufnr, true, floatWindowOpts)
