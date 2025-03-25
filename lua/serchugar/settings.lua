@@ -24,3 +24,10 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
+
+-- Custom filetype recognition
+vim.filetype.add({
+    extension = {
+        plot = "gnuplot",
+    }
+})
