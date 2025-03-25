@@ -16,5 +16,5 @@ require("lazy").setup({
         { import = "serchugar.plugins" },
     },
     change_detection = { notify = false },
-    checker = { enabled = true },
+    checker = { enabled = false },
 })
