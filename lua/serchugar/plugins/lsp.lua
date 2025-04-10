@@ -33,6 +33,7 @@ return {
                 "lua_ls",
                 "clangd",
                 "jdtls",
+                "csharp_ls",
             }
         })
 
